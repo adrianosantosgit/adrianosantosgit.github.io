@@ -72,3 +72,7 @@ h2 {
     text-align: center;
     padding: 2%;
 }
+a {
+    color: white;
+    font-weight: bold;
+}
