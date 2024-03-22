@@ -1,80 +1,80 @@
 body {
-    background-color: white;
-    color: black;
-    text-align: center;
-    padding: 10%;
-    padding-top: 3%;
-    margin: 5%;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 10%;
+  padding-top: 3%;
+  margin: 5%;
 }
 button {
-    float: right;
-    margin: 1%;
+  float: right;
+  margin: 1%;
 }
 h1 {
-    clear: both;
+  clear: both;
 }
 
 /*slider switch css */
 .theme-switch-wrapper {
-    display: flex;
-    align-items: center;
-    
-    em {
-      margin-left: 10px;
-      font-size: 1rem;
-    }
-  }
-  .theme-switch {
-    display: inline-block;
-    height: 9px;
-    position: relative;
-    width: 21px;
-  }
+  display: flex;
+  align-items: center;
   
-  .theme-switch input {
-    display:none;
+  em {
+    margin-left: 10px;
+    font-size: 1rem;
   }
-  
-  .slider {
-    background-color: #ccc;
-    bottom: 0;
-    cursor: pointer;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    background-color: #fff;
-    bottom: 1px;
-    content: "";
-    height: 7px;
-    left: 2px;
-    position: absolute;
-    transition: .4s;
-    width: 9px;
-  }
-  
-  input:checked + .slider {
-    background-color: #0011ff;
-  }
-  
-  input:checked + .slider:before {
-    transform: translateX(9px);
-  }
-  
-  .slider.round {
-    border-radius: 21px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+}
+.theme-switch {
+  display: inline-block;
+  height: 9px;
+  position: relative;
+  width: 21px;
+}
 
-    button {
-        margin: 3%;
-        font-size: larger;
-        padding: 1%;
-    }
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 1px;
+  content: "";
+  height: 7px;
+  left: 2px;
+  position: absolute;
+  transition: .4s;
+  width: 9px;
+}
+
+input:checked + .slider {
+  background-color: #0011ff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(9px);
+}
+
+.slider.round {
+  border-radius: 21px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+  button {
+      margin: 3%;
+      font-size: larger;
+      padding: 1%;
+  }
