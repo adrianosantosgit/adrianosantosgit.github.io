@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELATÓRIO DE CHAMADOS</title>
+    <style type="text/css">
+        body {
+            padding: 10%;
+            /* Other styling properties as needed */
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <p><input type="text" id="local" placeholder="*LOCAL:*"></p>
+        <p><input type="datetime" id="horarioChamado" placeholder="*HORÁRIO DO CHAMADO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
+        <p><input type="text" id="horarioInicio" placeholder="*HORÁRIO DO INÍCIO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
+        <p><input type="text" id="horarioTermino" placeholder="*HORÁRIO DO TÉRMINO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
+        <p><input type="text" id="fato" placeholder="*FATO:*"></p>
+        <p><input type="text" id="causa" placeholder="*CAUSA:*"></p>
+        <p><input type="text" id="acao" placeholder="*AÇÃO:*"></p>
+        <p><input type="text" id="obs" placeholder="*OBS:*"></p>
+    </form>
+
+    <p><textarea id="output" rows="10" cols="" readonly></textarea></p>
+
+    <button onclick="copyToClipboard()">Copy</button>
+
+
+    <script>
+
+const form = document.getElementById("myForm");
+const outputBox = document.getElementById("output");
+
+form.addEventListener("input", updateOutput);
+
+function updateOutput() {
+    let local = document.getElementById("local").value;
+    local = local.toUpperCase();
+    let horarioChamado = document.getElementById("horarioChamado").value;
+    const horarioInicio = document.getElementById("horarioInicio").value;
+    const horarioTermino = document.getElementById("horarioTermino").value;
+    const fato = document.getElementById("fato").value;
+    const causa = document.getElementById("causa").value;
+    const acao = document.getElementById("acao").value;
+    const obs = document.getElementById("obs").value;
+
+
+
+    const combinedText = `*LOCAL: * ${local}\n*CHAMADO: * ${horarioChamado}\n*INÍCIO: * ${horarioInicio}\n*TÉRMINO: * ${horarioTermino}\n*FATO: * ${fato}\n*CAUSA: * ${causa}\n*AÇÃO: * ${acao}\n*OBS: * ${obs}`;
+    outputBox.value = combinedText;
+}
+
+function copyToClipboard() {
+    outputBox.select();
+    document.execCommand("copy");
+    // Optionally, provide user feedback (e.g., alert or message)
+}
+
+
+    </script>
+</body>
+</html>
