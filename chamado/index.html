@@ -2,18 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.5">
     <title>RELATÓRIO DE CHAMADOS</title>
     <style type="text/css">
         body {
             padding: 10%;
             /* Other styling properties as needed */
         }
-        .div {
-        width: 50vw; /* 50% of viewport width */
-        height: 50vh; /* 50% of viewport height */
-        background-color: #f0f0f0; /* Optional background color */
-    }
+        form{
+            display: grid;
+        }
+        input, textarea {
+        width: 100%;
+        }
+        button{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        }
     </style>
 </head>
 <body>
@@ -30,7 +36,7 @@
 
     <p><textarea id="output" rows="10" cols="" readonly></textarea></p>
 
-    <p><button onclick="copyToClipboard()">Copy</button></p>
+    <p><button onclick="copyToClipboard()">Copiar</button></p>
 
 
     <script>
@@ -74,6 +80,7 @@ function copyToClipboard() {
     setTimeout(() => {
         document.body.removeChild(successMessage); // Remove the toast after 1.5 seconds
     }, 1500);
+
 }
 
     </script>
