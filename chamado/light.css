@@ -1,0 +1,26 @@
+body {
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 10%;
+  padding-top: 3%;
+  margin: 5%;
+}
+
+form{
+  display: grid;
+}
+input, textarea {
+width: 100%;
+}
+button{
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+}
+
+div{
+  position: absolute;
+  padding: 1.5em;
+  text-align: center;
+}
