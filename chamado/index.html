@@ -17,7 +17,7 @@
     <button style="position: absolute; left: 60%; margin-left: 2em;" onclick="lightMode()">Tela Clara</button>
     </p>
 
-    <h2 style="padding: 1em;">Formulário automático de preenchimento de chamados</h2>
+    <h2 style="padding-top: 2em;">Formulário automático de preenchimento de chamados</h2>
 
     <form id="myForm">
         <p><label for="local">Local:</label></p><p><input type="text" list="myOptions" id="local" placeholder="*LOCAL:*">
@@ -267,8 +267,10 @@
         <p><label for="fato">Fato:</label></p><p><input type="text" id="fato" placeholder="*FATO:*"></p>
         <p><label for="causa">Causa:</label></p><p><input type="text" id="causa" placeholder="*CAUSA:*"></p>
         <p><label for="acao">Ação:</label></p><p></p><input type="text" id="acao" placeholder="*AÇÃO:*"></p>
-        <p><label for="obs">Obs:</label></p><p></p><input type="text" id="obs" placeholder="*OBS:*"></p>
+        <p><label for="obs">Obsservação se necessário:</label></p><p></p><input type="text" id="obs" placeholder="*OBS:*"></p>
     </form>
+
+    <p><h3>Relatório gerado:</h3></p>
 
     <p><textarea id="output" rows="10" cols="" readonly></textarea></p>
 
@@ -299,12 +301,10 @@ function updateOutput() {
     let acao = document.getElementById("acao").value;
     acao = acao.charAt(0).toUpperCase() + acao.slice(1) + ".";
     let obs = document.getElementById("obs").value;
-    obs = obs.charAt(0).toUpperCase() + obs.slice(1) + ".";
-
-    const combinedText = `*LOCAL: * ${local}\n\n*CHAMADO: * ${horarioChamado}\n*INÍCIO: * ${horarioInicio}\n*TÉRMINO: * ${horarioTermino}\n\n*FATO: * ${fato}\n\n*CAUSA: * ${causa}\n\n*AÇÃO: * ${acao}\n\n*OBS: * ${obs}`;
-    outputBox.value = combinedText;
-
+    obs = "*OBS: *" + obs.charAt(0).toUpperCase() + obs.slice(1) + ".";
     
+    const combinedText = `*LOCAL: * ${local}\n\n*CHAMADO: * ${horarioChamado}\n*INÍCIO: * ${horarioInicio}\n*TÉRMINO: * ${horarioTermino}\n\n*FATO: * ${fato}\n\n*CAUSA: * ${causa}\n\n*AÇÃO: * ${acao}\n\n ${obs}`;
+    outputBox.value = combinedText;
     
 }
 
