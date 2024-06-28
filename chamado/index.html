@@ -303,7 +303,7 @@ function updateOutput() {
     let obs = document.getElementById("obs").value;
     obs = "*OBS: *" + obs.charAt(0).toUpperCase() + obs.slice(1) + ".";
     
-    const combinedText = `*LOCAL: * ${local}\n\n*CHAMADO: * ${horarioChamado}\n*INÍCIO: * ${horarioInicio}\n*TÉRMINO: * ${horarioTermino}\n\n*FATO: * ${fato}\n\n*CAUSA: * ${causa}\n\n*AÇÃO: * ${acao}\n\n ${obs}`;
+    const combinedText = `*LOCAL: * ${local}\n\n*CHAMADO: * ${horarioChamado}\n*INÍCIO: * ${horarioInicio}\n*TÉRMINO: * ${horarioTermino}\n\n*FATO: * ${fato}\n\n*CAUSA: * ${causa}\n\n*AÇÃO: * ${acao}\n\n${obs}`;
     outputBox.value = combinedText;
     
 }
