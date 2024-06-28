@@ -9,14 +9,19 @@
             padding: 10%;
             /* Other styling properties as needed */
         }
+        .div {
+        width: 50vw; /* 50% of viewport width */
+        height: 50vh; /* 50% of viewport height */
+        background-color: #f0f0f0; /* Optional background color */
+    }
     </style>
 </head>
 <body>
     <form id="myForm">
         <p><input type="text" id="local" placeholder="*LOCAL:*"></p>
-        <p><input type="time" value="00:00" id="horarioChamado" placeholder="*HORÁRIO DO CHAMADO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
-        <p><input type="time" value="00:00" id="horarioInicio" placeholder="*HORÁRIO DO INÍCIO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
-        <p><input type="time" value="00:00" id="horarioTermino" placeholder="*HORÁRIO DO TÉRMINO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
+        <p><input type="time" value="12:00" id="horarioChamado" placeholder="*HORÁRIO DO CHAMADO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
+        <p><input type="time" value="12:00" id="horarioInicio" placeholder="*HORÁRIO DO INÍCIO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
+        <p><input type="time" value="12:00" id="horarioTermino" placeholder="*HORÁRIO DO TÉRMINO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
         <p><input type="text" id="fato" placeholder="*FATO:*"></p>
         <p><input type="text" id="causa" placeholder="*CAUSA:*"></p>
         <p><input type="text" id="acao" placeholder="*AÇÃO:*"></p>
@@ -25,7 +30,7 @@
 
     <p><textarea id="output" rows="10" cols="" readonly></textarea></p>
 
-    <button onclick="copyToClipboard()">Copy</button>
+    <p><button onclick="copyToClipboard()">Copy</button></p>
 
 
     <script>
@@ -58,8 +63,18 @@ function copyToClipboard() {
     outputBox.select();
     document.execCommand("copy");
     // Optionally, provide user feedback (e.g., alert or message)
+    
+    // Show a success message (toast) for 0.5 seconds
+    const successMessage = document.createElement("div");
+    successMessage.textContent = "Copiado com sucesso!";
+    successMessage.classList.add("toast"); // Apply CSS styling for the toast
+    
+    document.body.appendChild(successMessage); // Add the toast to the DOM
+    
+    setTimeout(() => {
+        document.body.removeChild(successMessage); // Remove the toast after 1.5 seconds
+    }, 1500);
 }
-
 
     </script>
 </body>
