@@ -41,12 +41,14 @@ function updateOutput() {
     let horarioChamado = document.getElementById("horarioChamado").value;
     const horarioInicio = document.getElementById("horarioInicio").value;
     const horarioTermino = document.getElementById("horarioTermino").value;
-    const fato = document.getElementById("fato").value;
-    const causa = document.getElementById("causa").value;
-    const acao = document.getElementById("acao").value;
-    const obs = document.getElementById("obs").value;
-
-
+    let fato = document.getElementById("fato").value;
+    fato = fato.charAt(0).toUpperCase() + fato.slice(1) + ".";
+    let causa = document.getElementById("causa").value;
+    causa = causa.charAt(0).toUpperCase() + causa.slice(1) + ".";
+    let acao = document.getElementById("acao").value;
+    acao = acao.charAt(0).toUpperCase() + acao.slice(1) + ".";
+    let obs = document.getElementById("obs").value;
+    obs = obs.charAt(0).toUpperCase() + obs.slice(1) + ".";
 
     const combinedText = `*LOCAL: * ${local}\n*CHAMADO: * ${horarioChamado}\n*INÍCIO: * ${horarioInicio}\n*TÉRMINO: * ${horarioTermino}\n*FATO: * ${fato}\n*CAUSA: * ${causa}\n*AÇÃO: * ${acao}\n*OBS: * ${obs}`;
     outputBox.value = combinedText;
