@@ -225,9 +225,9 @@
                 <!-- Add more options as needed -->
             </datalist>
         </p>
-        <p><label for="horarioChamado">Horario do chamado:</label><input type="time" value="12:00" id="horarioChamado" placeholder="*HORÁRIO DO CHAMADO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
-        <p><label for="horarioInicio">Horario de início:</label><input type="time" value="12:00" id="horarioInicio" placeholder="*HORÁRIO DO INÍCIO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
-        <p><label for="horarioTermino">Horario de término:</label><input type="time" value="12:00" id="horarioTermino" placeholder="*HORÁRIO DO TÉRMINO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
+        <p><label for="horarioChamado">Horario do chamado: </label><input type="time" value="12:00" id="horarioChamado" placeholder="*HORÁRIO DO CHAMADO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
+        <p><label for="horarioInicio">Horario de início: </label><input type="time" value="12:00" id="horarioInicio" placeholder="*HORÁRIO DO INÍCIO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
+        <p><label for="horarioTermino">Horario de término: </label><input type="time" value="12:00" id="horarioTermino" placeholder="*HORÁRIO DO TÉRMINO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
         <p><label for="fato">Fato:</label></p><p><input type="text" id="fato" placeholder="*FATO:*"></p>
         <p><label for="causa">Causa:</label></p><p><input type="text" id="causa" placeholder="*CAUSA:*"></p>
         <p><label for="acao">Ação:</label></p><p></p><input type="text" id="acao" placeholder="*AÇÃO:*"></p>
@@ -236,7 +236,11 @@
 
     <p><textarea id="output" rows="10" cols="" readonly></textarea></p>
 
-    <p><button onclick="copyToClipboard()">Copiar</button></p>
+    <p><button onclick="copyToClipboard();">Copiar</button></p>
+    <p></p>
+    <p><button style="position: absolute; left: 80%; margin: 1em; border-radius: 15%;" onclick="gerarArquivo();">Salvar cópia</button></p>
+    <p></p>
+    
 
 
     <script>
@@ -294,7 +298,24 @@ function darkMode() {
     const el = document.querySelector("link");
     el.href = "dark.css";
 }
+function gerarArquivo() {
+    const now = new Date();
+    const dataFormatada = `${now.getDate().toString().padStart(2, '0')}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getFullYear()}`;
+    const horaFormatada = `${now.getHours().toString().padStart(2, '0')}-${now.getMinutes().toString().padStart(2, '0')}-${now.getSeconds().toString().padStart(2, '0')}`;
+    const nomeArquivo = `relatorio_chamado_${local.value}_${dataFormatada}_${horaFormatada}.txt`;
 
+    const conteudo = document.getElementById("output");
+    const blob = new Blob([outputBox.value]);
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = nomeArquivo;
+    link.click();
+
+    // Limpeza do objeto URL após o download
+    URL.revokeObjectURL(url);
+}
     </script>
 </body>
 </html>
