@@ -376,7 +376,7 @@ function shareViaWhatsapp() {
     
     const combinedText = `*LOCAL: * ${local}%0A%0A*CHAMADO: * ${horarioChamado}%0A*INÍCIO: * ${horarioInicio}%0A*TÉRMINO: * ${horarioTermino}%0A%0A*FATO: * ${fato}%0A%0A*CAUSA: * ${causa}%0A%0A*AÇÃO: * ${acao}%0A%0A${obs}`;
 
-    const whatsappURL = `https://wa.me/send?text=${combinedText}`;
+    const whatsappURL = `whatsapp://send?text=${combinedText}`;
     const link = document.getElementById('whatsapp');
     link.href = whatsappURL;
     // link.textContent = 'Compartilhar no Whatsapp';
