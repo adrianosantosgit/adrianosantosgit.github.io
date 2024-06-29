@@ -306,7 +306,7 @@ function updateOutput() {
     let acao = document.getElementById("acao").value;
     acao = acao.charAt(0).toUpperCase() + acao.slice(1) + ".";
     let obs = document.getElementById("obs").value;
-    obs = "*OBS: *" + obs.charAt(0).toUpperCase() + obs.slice(1) + ".";
+    obs = "*OBS: * " + obs.charAt(0).toUpperCase() + obs.slice(1) + ".";
     
     const combinedText = `*LOCAL: * ${local}\n\n*CHAMADO: * ${horarioChamado}\n*INÍCIO: * ${horarioInicio}\n*TÉRMINO: * ${horarioTermino}\n\n*FATO: * ${fato}\n\n*CAUSA: * ${causa}\n\n*AÇÃO: * ${acao}\n\n${obs}`;
     outputBox.value = combinedText;
@@ -372,7 +372,7 @@ function shareViaWhatsapp() {
     let acao = document.getElementById("acao").value;
     acao = acao.charAt(0).toUpperCase() + acao.slice(1) + ".";
     let obs = document.getElementById("obs").value;
-    obs = "*OBS: *" + obs.charAt(0).toUpperCase() + obs.slice(1) + ".";
+    obs = "*OBS: * " + obs.charAt(0).toUpperCase() + obs.slice(1) + ".";
     
     const combinedText = `*LOCAL: * ${local}%0A%0A*CHAMADO: * ${horarioChamado}%0A*INÍCIO: * ${horarioInicio}%0A*TÉRMINO: * ${horarioTermino}%0A%0A*FATO: * ${fato}%0A%0A*CAUSA: * ${causa}%0A%0A*AÇÃO: * ${acao}%0A%0A${obs}`;
 
