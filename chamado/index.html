@@ -278,7 +278,12 @@
     <p></p>
     <p><button style="position: absolute; left: 80%; margin: 1em; border-radius: 15%;" onclick="gerarArquivo();">Salvar cópia</button></p>
     <p></p>
-    
+
+    <pre>
+        
+        <p><a href="" id="whatsapp" onclick="shareViaWhatsapp()">Enviar via WhatsApp</a>
+    </p>
+    </pre>
 
 
     <script>
@@ -352,6 +357,32 @@ function gerarArquivo() {
     // Limpeza do objeto URL após o download
     URL.revokeObjectURL(url);
 }
+
+function shareViaWhatsapp() {
+
+    let local = document.getElementById("local").value;
+    local = local.toUpperCase();
+    let horarioChamado = document.getElementById("horarioChamado").value;
+    const horarioInicio = document.getElementById("horarioInicio").value;
+    const horarioTermino = document.getElementById("horarioTermino").value;
+    let fato = document.getElementById("fato").value;
+    fato = fato.charAt(0).toUpperCase() + fato.slice(1) + ".";
+    let causa = document.getElementById("causa").value;
+    causa = causa.charAt(0).toUpperCase() + causa.slice(1) + ".";
+    let acao = document.getElementById("acao").value;
+    acao = acao.charAt(0).toUpperCase() + acao.slice(1) + ".";
+    let obs = document.getElementById("obs").value;
+    obs = "*OBS: *" + obs.charAt(0).toUpperCase() + obs.slice(1) + ".";
+    
+    const combinedText = `*LOCAL: * ${local}%0A%0A*CHAMADO: * ${horarioChamado}%0A*INÍCIO: * ${horarioInicio}%0A*TÉRMINO: * ${horarioTermino}%0A%0A*FATO: * ${fato}%0A%0A*CAUSA: * ${causa}%0A%0A*AÇÃO: * ${acao}%0A%0A${obs}`;
+
+    const whatsappURL = `https://wa.me/send?text=${combinedText}`;
+    const link = document.getElementById('whatsapp');
+    link.href = whatsappURL;
+    // link.textContent = 'Compartilhar no Whatsapp';
+
+}
+
     </script>
 </body>
 </html>
