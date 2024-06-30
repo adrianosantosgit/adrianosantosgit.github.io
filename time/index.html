@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 5%;
+            background-color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <label for="booking-time">Select a time:</label>
+    <input type="time" id="booking-time" name="booking-time" min="08:00" max="20:00" required>
+<script>
+    const bookingTimeInput = document.getElementById("booking-time");
+
+    bookingTimeInput.addEventListener("change", function() {
+    const selectedTime = bookingTimeInput.value;
+    const selectedHour = parseInt(selectedTime.substr(0, 2));
+
+    if (selectedHour < 8 || selectedHour >= 20) {
+        alert("Please select a time between 8:00 AM and 8:00 PM.");
+        // Optionally, reset the input value to the minimum allowed time:
+        bookingTimeInput.value = "08:00";
+    }
+});
+
+</script>
+</body>
+</html>
