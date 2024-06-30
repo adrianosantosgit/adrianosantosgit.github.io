@@ -274,6 +274,8 @@
 
     <p><textarea id="output" rows="20" cols="" readonly></textarea></p>
 
+    <p id="msgCampos"></p>
+
     <pre><p><a href=""><button id="botaoWhatsapp" onclick="shareViaWhatsapp()" disabled>Enviar via WhatsApp</button></a></p>
     </pre>
 
@@ -399,6 +401,8 @@ function checkForm() {
             document.getElementById('botaoWhatsapp').disabled = true;
             document.getElementById('botaoCopiar').disabled = true;
             document.getElementById('botaoSalvar').disabled = true;
+            const msgCampos = document.getElementById('msgCampos');
+            msgCampos.textContent = "Falta preencher algum campo obrigatório! Pode ser: Local, horário do chamado, do início, do término, fato, causa ou ação.";
             
         } else {
             const whatsappBtn = document.getElementById('botaoWhatsapp');
@@ -407,6 +411,7 @@ function checkForm() {
             copyBtn.removeAttribute('disabled');
             const saveBtn = document.getElementById('botaoSalvar');
             saveBtn.removeAttribute('disabled');
+            msgCampos.textContent = "";
         }
         
     }
