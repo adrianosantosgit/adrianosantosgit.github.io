@@ -30,46 +30,43 @@
 
     <p>Horário do início:</p>
 
-    <label for="chamado_hora_input">Hora</label>
-    <button id="chamado_hora_minus">−</button>
-    <input type="number" value="12" id="chamado_hora_input" min="00" max="23"/>
-    <button id="chamado_hora_plus">+</button>
+    <label for="inicio_hora_input">Hora</label>
+    <button id="inicio_hora_minus">−</button>
+    <input type="number" value="12" id="inicio_hora_input" min="00" max="23"/>
+    <button id="inicio_hora_plus">+</button>
 
-    <label for="chamado_minute_input">Minuto</label>
-    <button id="chamado_minute_minus">−</button>
-    <input type="number" value="30" id="chamado_minute_input" min="00" max="59"/>
-    <button id="chamado_minute_plus">+</button>
+    <label for="inicio_minute_input">Minuto</label>
+    <button id="inicio_minute_minus">−</button>
+    <input type="number" value="30" id="inicio_minute_input" min="00" max="59"/>
+    <button id="inicio_minute_plus">+</button>
 
     <p>Horário do término:</p>
 
-    <label for="chamado_hora_input">Hora</label>
-    <button id="chamado_hora_minus">−</button>
-    <input type="number" value="12" id="chamado_hora_input" min="00" max="23"/>
-    <button id="chamado_hora_plus">+</button>
+    <label for="termino_hora_input">Hora</label>
+    <button id="termino_hora_minus">−</button>
+    <input type="number" value="12" id="termino_hora_input" min="00" max="23"/>
+    <button id="termino_hora_plus">+</button>
 
-    <label for="chamado_minute_input">Minuto</label>
-    <button id="chamado_minute_minus">−</button>
-    <input type="number" value="30" id="chamado_minute_input" min="00" max="59"/>
-    <button id="chamado_minute_plus">+</button>
+    <label for="termino_minute_input">Minuto</label>
+    <button id="termino_inute_minus">−</button>
+    <input type="number" value="30" id="termino_minute_input" min="00" max="59"/>
+    <button id="termino_minute_plus">+</button>
     
     <script>
-      const minusButton = document.getElementById('chamado_hora_minus');
-      const plusButton = document.getElementById('chamado_hora_plus');
-      let inputField = document.getElementById('chamado_hora_input');
+      const chamado_hora_minusButton = document.getElementById('chamado_hora_minus');
+      const chamado_hora_plusButton = document.getElementById('chamado_hora_plus');
+      let chamado_hora_inputField = document.getElementById('chamado_hora_input');
     
-      minusButton.addEventListener('click', event => {
+      chamado_hora_minusButton.addEventListener('click', event => {
         event.preventDefault();
-        const currentValue = Number(inputField.value) || 0;
-        inputField.value = Math.max(currentValue - 1, 0);
-        if (inputField.value < 10) {
-            
-        }
+        const currentValue = Number(chamado_hora_inputField.value) || 0;
+        chamado_hora_inputField.value = Math.max(currentValue - 1, 0);
       });
     
-      plusButton.addEventListener('click', event => {
+      chamado_hora_plusButton.addEventListener('click', event => {
         event.preventDefault();
-        const currentValue = Number(inputField.value) || 0;
-        inputField.value = Math.min(currentValue + 1, 23);
+        const currentValue = Number(chamado_hora_inputField.value) || 0;
+        chamado_hora_inputField.value = Math.min(currentValue + 1, 23);
       });
 
       const chamado_minute_minusButton = document.getElementById('chamado_minute_minus');
@@ -85,7 +82,7 @@
       chamado_minute_plusButton.addEventListener('click', event => {
         event.preventDefault();
         const currentValue = Number(chamado_minute_inputField.value) || 0;
-        chamado_minute_inputField.value = Math.min(currentValue + 1, 23);
+        chamado_minute_inputField.value = Math.min(currentValue + 1, 59);
       });
 
 
