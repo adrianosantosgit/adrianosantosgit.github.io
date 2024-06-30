@@ -8,27 +8,91 @@
         body{
             padding: 5%;
             background-color: #333;
+            color: white;
             text-align: center;
+
         }
     </style>
 </head>
 <body>
-    <label for="booking-time">Select a time:</label>
-    <input type="time" id="booking-time" name="booking-time" min="08:00" max="20:00" required>
-<script>
-    const bookingTimeInput = document.getElementById("booking-time");
 
-    bookingTimeInput.addEventListener("change", function() {
-    const selectedTime = bookingTimeInput.value;
-    const selectedHour = parseInt(selectedTime.substr(0, 2));
+    <p>Horário do chamado:</p>
 
-    if (selectedHour < 8 || selectedHour >= 20) {
-        alert("Please select a time between 8:00 AM and 8:00 PM.");
-        // Optionally, reset the input value to the minimum allowed time:
-        bookingTimeInput.value = "08:00";
-    }
-});
+    <label for="chamado_hora_input">Hora</label>
+    <button id="chamado_hora_minus">−</button>
+    <input type="number" value="12" id="chamado_hora_input" min="00" max="23"/>
+    <button id="chamado_hora_plus">+</button>
 
-</script>
+    <label for="chamado_minute_input">Minuto</label>
+    <button id="chamado_minute_minus">−</button>
+    <input type="number" value="30" id="chamado_minute_input" min="00" max="59"/>
+    <button id="chamado_minute_plus">+</button>
+
+    <p>Horário do início:</p>
+
+    <label for="chamado_hora_input">Hora</label>
+    <button id="chamado_hora_minus">−</button>
+    <input type="number" value="12" id="chamado_hora_input" min="00" max="23"/>
+    <button id="chamado_hora_plus">+</button>
+
+    <label for="chamado_minute_input">Minuto</label>
+    <button id="chamado_minute_minus">−</button>
+    <input type="number" value="30" id="chamado_minute_input" min="00" max="59"/>
+    <button id="chamado_minute_plus">+</button>
+
+    <p>Horário do término:</p>
+
+    <label for="chamado_hora_input">Hora</label>
+    <button id="chamado_hora_minus">−</button>
+    <input type="number" value="12" id="chamado_hora_input" min="00" max="23"/>
+    <button id="chamado_hora_plus">+</button>
+
+    <label for="chamado_minute_input">Minuto</label>
+    <button id="chamado_minute_minus">−</button>
+    <input type="number" value="30" id="chamado_minute_input" min="00" max="59"/>
+    <button id="chamado_minute_plus">+</button>
+    
+    <script>
+      const minusButton = document.getElementById('chamado_hora_minus');
+      const plusButton = document.getElementById('chamado_hora_plus');
+      let inputField = document.getElementById('chamado_hora_input');
+    
+      minusButton.addEventListener('click', event => {
+        event.preventDefault();
+        const currentValue = Number(inputField.value) || 0;
+        inputField.value = Math.max(currentValue - 1, 0);
+        if (inputField.value < 10) {
+            
+        }
+      });
+    
+      plusButton.addEventListener('click', event => {
+        event.preventDefault();
+        const currentValue = Number(inputField.value) || 0;
+        inputField.value = Math.min(currentValue + 1, 23);
+      });
+
+      const chamado_minute_minusButton = document.getElementById('chamado_minute_minus');
+      const chamado_minute_plusButton = document.getElementById('chamado_minute_plus');
+      let chamado_minute_inputField = document.getElementById('chamado_minute_input');
+    
+      chamado_minute_minusButton.addEventListener('click', event => {
+        event.preventDefault();
+        const currentValue = Number(chamado_minute_inputField.value) || 0;
+        chamado_minute_inputField.value = Math.max(currentValue - 1, 0);
+      });
+    
+      chamado_minute_plusButton.addEventListener('click', event => {
+        event.preventDefault();
+        const currentValue = Number(chamado_minute_inputField.value) || 0;
+        chamado_minute_inputField.value = Math.min(currentValue + 1, 23);
+      });
+
+
+
+    </script>
+    
+
+    
 </body>
 </html>
