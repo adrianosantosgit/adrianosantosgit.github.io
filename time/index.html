@@ -61,12 +61,20 @@
         event.preventDefault();
         const currentValue = Number(chamado_hora_inputField.value) || 0;
         chamado_hora_inputField.value = Math.max(currentValue - 1, 0);
+        if (chamado_hora_inputField.value < 10) {
+            chamado_hora_inputField.value = "0" + chamado_hora_inputField.value;
+            console.log(chamado_hora_inputField.value);
+        }
       });
     
       chamado_hora_plusButton.addEventListener('click', event => {
         event.preventDefault();
         const currentValue = Number(chamado_hora_inputField.value) || 0;
         chamado_hora_inputField.value = Math.min(currentValue + 1, 23);
+        if (chamado_hora_inputField.value < 10) {
+            chamado_hora_inputField.value = "0" + chamado_hora_inputField.value;
+            console.log(chamado_hora_inputField.value);
+        }
       });
 
       const chamado_minute_minusButton = document.getElementById('chamado_minute_minus');
@@ -77,12 +85,20 @@
         event.preventDefault();
         const currentValue = Number(chamado_minute_inputField.value) || 0;
         chamado_minute_inputField.value = Math.max(currentValue - 1, 0);
+        if (chamado_minute_inputField.value < 10) {
+            chamado_minute_inputField.value = "0" + chamado_minute_inputField.value;
+            console.log(chamado_minute_inputField.value);
+        }
       });
     
       chamado_minute_plusButton.addEventListener('click', event => {
         event.preventDefault();
         const currentValue = Number(chamado_minute_inputField.value) || 0;
         chamado_minute_inputField.value = Math.min(currentValue + 1, 59);
+        if (chamado_minute_inputField.value < 10) {
+            chamado_minute_inputField.value = "0" + chamado_minute_inputField.value;
+            console.log(chamado_minute_inputField.value);
+        }
       });
 
 
