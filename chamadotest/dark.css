@@ -1,0 +1,30 @@
+body {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10%;
+  padding-top: 3%;
+  margin: 5%;
+}
+
+form{
+  display: block;
+}
+input, textarea {
+width: 100%;
+}
+button{
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+}
+
+div{
+  position: absolute;
+  padding: 1.5em;
+  text-align: center;
+}
+
+a{
+  color: white;
+}
