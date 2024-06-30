@@ -20,7 +20,7 @@
     <h2 style="padding-top: 2em;">Formulário automático de preenchimento de chamados</h2>
 
     <form id="myForm">
-        <p><label for="local">Local:</label></p><p><input type="text" list="myOptions" id="local" placeholder="*LOCAL:*">
+        <p><label for="local">Local:</label></p><p><input type="text" onkeyup="checkForm()" list="myOptions" id="local" placeholder="*LOCAL:*" required>
             <datalist id="myOptions">
 
                 <option value="A02">
@@ -261,12 +261,12 @@
                 <!-- Add more options as needed -->
             </datalist>
         </p>
-        <p><label for="horarioChamado">Horario do chamado: </label><input type="time" value="00:00" id="horarioChamado" placeholder="*HORÁRIO DO CHAMADO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
-        <p><label for="horarioInicio">Horario de início: </label><input type="time" value="00:00" id="horarioInicio" placeholder="*HORÁRIO DO INÍCIO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
-        <p><label for="horarioTermino">Horario de término: </label><input type="time" value="00:00" id="horarioTermino" placeholder="*HORÁRIO DO TÉRMINO:*" minlength="5" maxlength="5" min="0000" max="2359" required></p>
-        <p><label for="fato">Fato:</label></p><p><input type="text" id="fato" placeholder="*FATO:*"></p>
-        <p><label for="causa">Causa:</label></p><p><input type="text" id="causa" placeholder="*CAUSA:*"></p>
-        <p><label for="acao">Ação:</label></p><p></p><input type="text" id="acao" placeholder="*AÇÃO:*"></p>
+        <p><label for="horarioChamado">Horario do chamado: </label><input type="time" value="" id="horarioChamado" placeholder="*HORÁRIO DO CHAMADO:*" required></p>
+        <p><label for="horarioInicio">Horario de início: </label><input type="time" value="" id="horarioInicio" placeholder="*HORÁRIO DO INÍCIO:*" required></p>
+        <p><label for="horarioTermino">Horario de término: </label><input type="time" value="" id="horarioTermino" placeholder="*HORÁRIO DO TÉRMINO:*" required></p>
+        <p><label for="fato">Fato:</label></p><p><input type="text" onkeyup="checkForm()" id="fato" placeholder="*FATO:*" required></p>
+        <p><label for="causa">Causa:</label></p><p><input type="text" onkeyup="checkForm()" id="causa" placeholder="*CAUSA:*" required></p>
+        <p><label for="acao">Ação:</label></p><p></p><input type="text" onkeyup="checkForm()" id="acao" placeholder="*AÇÃO:*" required></p>
         <p><label for="obs">Observação se necessário:</label></p><p></p><input type="text" id="obs" placeholder="*OBS:*"></p>
     </form>
 
@@ -274,15 +274,13 @@
 
     <p><textarea id="output" rows="20" cols="" readonly></textarea></p>
 
-    <pre><p><a href="" id="whatsapp" onclick="shareViaWhatsapp()"><button>Enviar via WhatsApp</button></a></p>
+    <pre><p><a href=""><button id="botaoWhatsapp" onclick="shareViaWhatsapp()" disabled>Enviar via WhatsApp</button></a></p>
     </pre>
 
-    <p><button onclick="copyToClipboard();">Copiar</button></p>
+    <p><button id="botaoCopiar" disabled onclick="copyToClipboard();">Copiar</button></p>
     <p id="mensagemSucesso"></p>
-    <p><button style="position: absolute; left: 80%; margin: 1em; border-radius: 15%;" onclick="gerarArquivo();">Salvar cópia</button></p>
+    <p><button id="botaoSalvar" disabled style="position: absolute; left: 80%; margin: 1em; border-radius: 15%;" onclick="gerarArquivo();">Salvar cópia</button></p>
     <p></p>
-
-
 
     <script>
 
@@ -361,8 +359,8 @@ function shareViaWhatsapp() {
     let local = document.getElementById("local").value;
     local = local.toUpperCase();
     let horarioChamado = document.getElementById("horarioChamado").value;
-    const horarioInicio = document.getElementById("horarioInicio").value;
-    const horarioTermino = document.getElementById("horarioTermino").value;
+    let horarioInicio = document.getElementById("horarioInicio").value;
+    let horarioTermino = document.getElementById("horarioTermino").value;
     let fato = document.getElementById("fato").value;
     fato = fato.charAt(0).toUpperCase() + fato.slice(1) + ".";
     let causa = document.getElementById("causa").value;
@@ -378,9 +376,44 @@ function shareViaWhatsapp() {
     const link = document.getElementById('whatsapp');
     link.href = whatsappURL;
     // link.textContent = 'Compartilhar no Whatsapp';
+}
+
+function checkForm() {
+
+    const myForm = document.getElementById('myForm');
+
+    const formElements = document.forms.myForm.elements;
+ 
+    for (i in formElements) {
+        let local = document.getElementById("local").value;
+        let horarioChamado = document.getElementById("horarioChamado").value;
+        let horarioInicio = document.getElementById("horarioInicio").value;
+        let horarioTermino = document.getElementById("horarioTermino").value;
+        let fato = document.getElementById("fato").value;
+        let causa = document.getElementById("causa").value;
+        let acao = document.getElementById("acao").value;
+        
+        // console.log(local === "" || horarioChamado === "" || horarioInicio === "" || horarioTermino === "" || fato === "" || causa === "" || acao === "");
+        if (local === "" || horarioChamado === "" || horarioInicio === "" || horarioTermino === "" || fato === "" || causa === "" || acao === "") {
+            console.log("Missing data");
+            document.getElementById('botaoWhatsapp').disabled = true;
+            document.getElementById('botaoCopiar').disabled = true;
+            document.getElementById('botaoSalvar').disabled = true;
+            
+        } else {
+            const whatsappBtn = document.getElementById('botaoWhatsapp');
+            whatsappBtn.removeAttribute('disabled');
+            const copyBtn = document.getElementById('botaoCopiar');
+            copyBtn.removeAttribute('disabled');
+            const saveBtn = document.getElementById('botaoSalvar');
+            saveBtn.removeAttribute('disabled');
+        }
+        
+    }
 
 }
 
     </script>
 </body>
 </html>
+
