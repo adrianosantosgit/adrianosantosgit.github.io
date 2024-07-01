@@ -406,7 +406,7 @@ function checkForm() {
         // console.log(local === "" || horarioChamado === "" || horarioInicio === "" || horarioTermino === "" || fato === "" || causa === "" || acao === "");
         if (local === "" || horarioChamado === "" || horarioInicio === "" || horarioTermino === "" || fato === "" || causa === "" || acao === "") {
             console.log("Missing data");
-            document.getElementById('botaoWhatsapp').disabled = true;
+            document.getElementById('shareWhatsapp').disabled = true;
             document.getElementById('botaoCopiar').disabled = true;
             document.getElementById('botaoSalvar').disabled = true;
             const msgCampos = document.getElementById('msgCampos');
