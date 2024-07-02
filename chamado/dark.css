@@ -21,6 +21,6 @@ transform: translateX(-50%);
 
 div{
   position: absolute;
-  padding: 1.5em;
-  text-align: center;
+  left: 30%;
+  padding-top: 2.5em;
 }
