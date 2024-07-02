@@ -11,7 +11,14 @@ form{
   display: block;
 }
 input, textarea {
-width: 100%;
+width: 90%;
+padding: 0.5em;
+margin-bottom: 1em;
+border: 1px solid #ccc;
+border-radius: 5px;
+background-color: #444;
+color: #fff;
+font-size: 1em;
 }
 button{
 position: absolute;
