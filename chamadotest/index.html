@@ -270,11 +270,11 @@
         <p><label for="obs">Observação se necessário:</label></p><p></p><input type="text" id="obs" placeholder="*OBS:*"></p>
     </form>
 
-    <p><h3>Relatório gerado:</h3></p>
+    <p><h2>Relatório gerado:</h2></p>
 
     <p><textarea id="output" rows="20" cols="" readonly></textarea></p>
 
-    <p id="msgCampos"></p>
+    <p id="msgCampos" class="msgCampos"></p>
 
     <pre><p><a href="" id="botaoWhatsapp" onclick="shareViaWhatsapp()" ><button id="shareWhatsapp" disabled>Enviar via WhatsApp</button></a></p>
     </pre>
@@ -328,8 +328,8 @@ function copyToClipboard() {
     document.body.appendChild(successMessage); // Add the toast to the DOM
     
     setTimeout(() => {
-        document.body.removeChild(successMessage); // Remove the toast after 1.5 seconds
-    }, 1500);
+        document.body.removeChild(successMessage); // Remove the toast after 3 seconds
+    }, 3000);
 
 }
 
