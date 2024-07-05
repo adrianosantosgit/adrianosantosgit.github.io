@@ -261,20 +261,20 @@
                 <!-- Add more options as needed -->
             </datalist>
         </p>
-        <p><label for="horarioChamado">Horario do chamado: </label><input type="time" value="" id="horarioChamado" placeholder="*HORÁRIO DO CHAMADO:*" required></p>
-        <p><label for="horarioInicio">Horario de início: </label><input type="time" value="" id="horarioInicio" placeholder="*HORÁRIO DO INÍCIO:*" required></p>
-        <p><label for="horarioTermino">Horario de término: </label><input type="time" value="" id="horarioTermino" placeholder="*HORÁRIO DO TÉRMINO:*" required></p>
+        <p><label for="horarioChamado">Horario do chamado: </label><input type="time" value="12:30" id="horarioChamado" placeholder="*HORÁRIO DO CHAMADO:*" required></p>
+        <p><label for="horarioInicio">Horario de início: </label><input type="time" value="12:30" id="horarioInicio" placeholder="*HORÁRIO DO INÍCIO:*" required></p>
+        <p><label for="horarioTermino">Horario de término: </label><input type="time" value="12:30" id="horarioTermino" placeholder="*HORÁRIO DO TÉRMINO:*" required></p>
         <p><label for="fato">Fato:</label></p><p><input type="text" onkeyup="checkForm()" id="fato" placeholder="*FATO:*" required></p>
         <p><label for="causa">Causa:</label></p><p><input type="text" onkeyup="checkForm()" id="causa" placeholder="*CAUSA:*" required></p>
         <p><label for="acao">Ação:</label></p><p></p><input type="text" onkeyup="checkForm()" id="acao" placeholder="*AÇÃO:*" required></p>
         <p><label for="obs">Observação se necessário:</label></p><p></p><input type="text" id="obs" placeholder="*OBS:*"></p>
     </form>
 
-    <p><h3>Relatório gerado:</h3></p>
+    <p><h2>Relatório gerado:</h2></p>
 
     <p><textarea id="output" rows="20" cols="" readonly></textarea></p>
 
-    <p id="msgCampos"></p>
+    <p id="msgCampos" class="msgCampos"></p>
 
     <pre><p><a href="" id="botaoWhatsapp" onclick="shareViaWhatsapp()" ><button id="shareWhatsapp" disabled>Enviar via WhatsApp</button></a></p>
     </pre>
@@ -328,8 +328,8 @@ function copyToClipboard() {
     document.body.appendChild(successMessage); // Add the toast to the DOM
     
     setTimeout(() => {
-        document.body.removeChild(successMessage); // Remove the toast after 1.5 seconds
-    }, 1500);
+        document.body.removeChild(successMessage); // Remove the toast after 3 seconds
+    }, 3000);
 
 }
 
