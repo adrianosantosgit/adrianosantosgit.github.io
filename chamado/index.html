@@ -391,15 +391,31 @@ function shareViaWhatsapp() {
     let horarioTermino = document.getElementById("horarioTermino").value;
     let fato = document.getElementById("fato").value;
     fato = fato.charAt(0).toUpperCase() + fato.slice(1) + ".";
+    fato = fato.replace(
+    new RegExp(wordsToSearch.join("|"), "gi"),
+    (match) => match.toUpperCase()
+    );
     let causa = document.getElementById("causa").value;
     causa = causa.charAt(0).toUpperCase() + causa.slice(1) + ".";
+    causa = causa.replace(
+    new RegExp(wordsToSearch.join("|"), "gi"),
+    (match) => match.toUpperCase()
+    );
     let acao = document.getElementById("acao").value;
     acao = acao.charAt(0).toUpperCase() + acao.slice(1) + ".";
+    acao = acao.replace(
+    new RegExp(wordsToSearch.join("|"), "gi"),
+    (match) => match.toUpperCase()
+    );
     let obs = document.getElementById("obs").value;
     if (obs === "") {
         obs = "";        
     } else {
         obs = "*OBS:* " + obs.charAt(0).toUpperCase() + obs.slice(1) + ".";
+        obs = obs.replace(
+        new RegExp(wordsToSearch.join("|"), "gi"),
+        (match) => match.toUpperCase()
+        );
     }
     
     const combinedText = `*Local:* ${local}%0A%0A*Chamado:* ${horarioChamado}%0A*Início:* ${horarioInicio}%0A*Término:* ${horarioTermino}%0A%0A*Fato:* ${fato}%0A%0A*Causa:* ${causa}%0A%0A*Ação:* ${acao}%0A%0A${obs}`;
