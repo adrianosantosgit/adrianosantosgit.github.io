@@ -19,6 +19,9 @@
 
     <h2 style="padding-top: 2em;">Formulário automático de preenchimento de chamados</h2>
 
+    <p style="font-size: 1.5em;">Palavras com letras maiúsculas automaticamente:</p>
+    <p id="autoReplacedWords"></p>
+
     <form id="myForm">
         <p><label for="local">Local:</label></p><p><input type="text" onkeyup="checkForm()" list="myOptions" id="local" placeholder="*LOCAL:*" required>
             <datalist id="myOptions">
@@ -291,28 +294,47 @@ const outputBox = document.getElementById("output");
 
 form.addEventListener("input", updateOutput);
 
+const wordsToSearch = ["poem", "gpu", "pca", "ihm", "lcd", "j3", "c1", "c2", "cbm"];
+
 function updateOutput() {
-    let local = document.getElementById("local").value;
-    local = local.toUpperCase();
-    let horarioChamado = document.getElementById("horarioChamado").value;
-    const horarioInicio = document.getElementById("horarioInicio").value;
-    const horarioTermino = document.getElementById("horarioTermino").value;
-    let fato = document.getElementById("fato").value;
-    fato = fato.charAt(0).toUpperCase() + fato.slice(1) + ".";
-    let causa = document.getElementById("causa").value;
-    causa = causa.charAt(0).toUpperCase() + causa.slice(1) + ".";
-    let acao = document.getElementById("acao").value;
-    acao = acao.charAt(0).toUpperCase() + acao.slice(1) + ".";
-    let obs = document.getElementById("obs").value;
-    if (obs === "") {
-        obs = "";        
-    } else {
-        obs = "*OBS:* " + obs.charAt(0).toUpperCase() + obs.slice(1) + ".";
-    }
-    
-    const combinedText = `*Local:* ${local}\n\n*Chamado:* ${horarioChamado}\n*Início:* ${horarioInicio}\n*Término:* ${horarioTermino}\n\n*Fato:* ${fato}\n\n*Causa:* ${causa}\n\n*Ação:* ${acao}\n\n${obs}`;
-    outputBox.value = combinedText;
-    
+
+let local = document.getElementById("local").value;
+local = local.toUpperCase();
+let horarioChamado = document.getElementById("horarioChamado").value;
+const horarioInicio = document.getElementById("horarioInicio").value;
+const horarioTermino = document.getElementById("horarioTermino").value;
+let fato = document.getElementById("fato").value;
+fato = fato.charAt(0).toUpperCase() + fato.slice(1) + ".";
+fato = fato.replace(
+new RegExp(wordsToSearch.join("|"), "gi"),
+(match) => match.toUpperCase()
+);
+let causa = document.getElementById("causa").value;
+causa = causa.charAt(0).toUpperCase() + causa.slice(1) + ".";
+causa = causa.replace(
+new RegExp(wordsToSearch.join("|"), "gi"),
+(match) => match.toUpperCase()
+);
+let acao = document.getElementById("acao").value;
+acao = acao.charAt(0).toUpperCase() + acao.slice(1) + ".";
+acao = acao.replace(
+new RegExp(wordsToSearch.join("|"), "gi"),
+(match) => match.toUpperCase()
+);
+let obs = document.getElementById("obs").value;
+if (obs === "") {
+    obs = "";        
+} else {
+    obs = "*OBS:* " + obs.charAt(0).toUpperCase() + obs.slice(1) + ".";
+    obs = obs.replace(
+    new RegExp(wordsToSearch.join("|"), "gi"),
+    (match) => match.toUpperCase()
+    );
+}
+
+const combinedText = `*Local:* ${local}\n\n*Chamado:* ${horarioChamado}\n*Início:* ${horarioInicio}\n*Término:* ${horarioTermino}\n\n*Fato:* ${fato}\n\n*Causa:* ${causa}\n\n*Ação:* ${acao}\n\n${obs}`;
+outputBox.value = combinedText;
+
 }
 
 function copyToClipboard() {
@@ -425,6 +447,13 @@ function checkForm() {
     }
 
 }
+
+const paragraph = document.getElementById("autoReplacedWords");
+const description = ""; // Your desired description
+const commaSeparatedList = wordsToSearch.join(", ").toUpperCase();
+const finalText = commaSeparatedList;
+
+paragraph.textContent = finalText;
 
     </script>
 </body>
