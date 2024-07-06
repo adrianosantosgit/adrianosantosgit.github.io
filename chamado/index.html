@@ -13,7 +13,7 @@
 <body>
 
     <p>
-    <button style="position: absolute; left: 40%; margin-right: 2em;" onclick="darkMode()">Tela Escura</button>
+    <button style="position: absolute; left: 33%; margin-right: 2em;" onclick="darkMode()">Tela Escura</button>
     <button style="position: absolute; left: 60%; margin-left: 2em;" onclick="lightMode()">Tela Clara</button>
     </p>
 
@@ -448,12 +448,12 @@ function checkForm() {
 
 }
 
-const paragraph = document.getElementById("autoReplacedWords");
+const autoReplacedWords = document.getElementById("autoReplacedWords");
 const description = ""; // Your desired description
 const commaSeparatedList = wordsToSearch.join(", ").toUpperCase();
 const finalText = commaSeparatedList;
 
-paragraph.textContent = finalText;
+autoReplacedWords.textContent = finalText;
 
     </script>
 </body>
