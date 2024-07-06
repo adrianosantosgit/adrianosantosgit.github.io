@@ -296,6 +296,16 @@ form.addEventListener("input", updateOutput);
 
 const wordsToSearch = ["poem", "gpu", "pca", "ihm", "lcd", "j3", "c1", "c2", "cbm"];
 
+function capitalizeSentences(inputText) {
+    const sentences = inputText.split('. ');
+    const capitalizedSentences = sentences.map((sentence) => {
+        const firstLetter = sentence.charAt(0).toUpperCase();
+        const restOfSentence = sentence.slice(1);
+        return firstLetter + restOfSentence;
+    });
+    return capitalizedSentences.join('. ');
+}
+
 function updateOutput() {
 
 let local = document.getElementById("local").value;
@@ -309,18 +319,21 @@ fato = fato.replace(
 new RegExp(wordsToSearch.join("|"), "gi"),
 (match) => match.toUpperCase()
 );
+fato = capitalizeSentences(fato);
 let causa = document.getElementById("causa").value;
 causa = causa.charAt(0).toUpperCase() + causa.slice(1) + ".";
 causa = causa.replace(
 new RegExp(wordsToSearch.join("|"), "gi"),
 (match) => match.toUpperCase()
 );
+causa = capitalizeSentences(causa);
 let acao = document.getElementById("acao").value;
 acao = acao.charAt(0).toUpperCase() + acao.slice(1) + ".";
 acao = acao.replace(
 new RegExp(wordsToSearch.join("|"), "gi"),
 (match) => match.toUpperCase()
 );
+acao = capitalizeSentences(acao);
 let obs = document.getElementById("obs").value;
 if (obs === "") {
     obs = "";        
@@ -330,6 +343,7 @@ if (obs === "") {
     new RegExp(wordsToSearch.join("|"), "gi"),
     (match) => match.toUpperCase()
     );
+    obs = capitalizeSentences(obs);
 }
 
 const combinedText = `*Local:* ${local}\n\n*Chamado:* ${horarioChamado}\n*Início:* ${horarioInicio}\n*Término:* ${horarioTermino}\n\n*Fato:* ${fato}\n\n*Causa:* ${causa}\n\n*Ação:* ${acao}\n\n${obs}`;
@@ -395,18 +409,21 @@ function shareViaWhatsapp() {
     new RegExp(wordsToSearch.join("|"), "gi"),
     (match) => match.toUpperCase()
     );
+    fato = capitalizeSentences(fato);
     let causa = document.getElementById("causa").value;
     causa = causa.charAt(0).toUpperCase() + causa.slice(1) + ".";
     causa = causa.replace(
     new RegExp(wordsToSearch.join("|"), "gi"),
     (match) => match.toUpperCase()
     );
+    causa = capitalizeSentences(causa);
     let acao = document.getElementById("acao").value;
     acao = acao.charAt(0).toUpperCase() + acao.slice(1) + ".";
     acao = acao.replace(
     new RegExp(wordsToSearch.join("|"), "gi"),
     (match) => match.toUpperCase()
     );
+    acao = capitalizeSentences(acao);
     let obs = document.getElementById("obs").value;
     if (obs === "") {
         obs = "";        
@@ -416,6 +433,7 @@ function shareViaWhatsapp() {
         new RegExp(wordsToSearch.join("|"), "gi"),
         (match) => match.toUpperCase()
         );
+        obs = capitalizeSentences(obs);
     }
     
     const combinedText = `*Local:* ${local}%0A%0A*Chamado:* ${horarioChamado}%0A*Início:* ${horarioInicio}%0A*Término:* ${horarioTermino}%0A%0A*Fato:* ${fato}%0A%0A*Causa:* ${causa}%0A%0A*Ação:* ${acao}%0A%0A${obs}`;
