@@ -303,6 +303,15 @@ function capitalizeSentences(inputText) {
         const restOfSentence = sentence.slice(1);
         return firstLetter + restOfSentence;
     });
+
+    //conditional to remove a blank space if it happens before the end point signal.
+    if (inputText.length >= 2) {
+        const penultimateChar = inputText[inputText.length - 2];
+        if (penultimateChar === ' ') {
+            // Remove the penultimate space
+            return inputText.slice(0, -2) + inputText.slice(-1);
+        }
+    }
     return capitalizedSentences.join('. ');
 }
 
