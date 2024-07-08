@@ -460,7 +460,7 @@ function shareViaWhatsapp() {
         obs = capitalizeSentences(obs);
     }
     
-    const combinedText = `*Local:* ${local}%0A%0A*Chamado:* ${horarioChamado}%0A*Início:* ${horarioInicio}%0A*Término:* ${horarioTermino}%0A%0A*Fato:* ${fato}%0A%0A*Causa:* ${causa}%0A%0A*Ação:* ${acao}%0A%0A${obs}`;
+    const combinedText = `*Local:* ${local}%0A%0A*Chamado:* ${horarioChamado}%0A*Início:* ${horarioInicio} ${inicioObs}%0A*Término:* ${horarioTermino}%0A%0A*Fato:* ${fato}%0A%0A*Causa:* ${causa}%0A%0A*Ação:* ${acao}%0A%0A${obs}`;
 
     const whatsappURL = `//api.whatsapp.com/send?text=${combinedText}`;
     const link = document.getElementById('botaoWhatsapp');
