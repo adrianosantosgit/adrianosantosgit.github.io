@@ -470,39 +470,39 @@ function shareViaWhatsapp() {
 
 function checkForm() {
 
-    const myForm = document.getElementById('myForm');
+const myForm = document.getElementById('myForm');
 
-    const formElements = document.forms.myForm.elements;
- 
-    for (i in formElements) {
-        let local = document.getElementById("local").value;
-        let horarioChamado = document.getElementById("horarioChamado").value;
-        let horarioInicio = document.getElementById("horarioInicio").value;
-        let horarioTermino = document.getElementById("horarioTermino").value;
-        let fato = document.getElementById("fato").value;
-        let causa = document.getElementById("causa").value;
-        let acao = document.getElementById("acao").value;
+const formElements = document.forms.myForm.elements;
+
+for (i in formElements) {
+    let local = document.getElementById("local").value;
+    let horarioChamado = document.getElementById("horarioChamado").value;
+    let horarioInicio = document.getElementById("horarioInicio").value;
+    let horarioTermino = document.getElementById("horarioTermino").value;
+    let fato = document.getElementById("fato").value;
+    let causa = document.getElementById("causa").value;
+    let acao = document.getElementById("acao").value;
+    
+    // console.log(local === "" || horarioChamado === "" || horarioInicio === "" || horarioTermino === "" || fato === "" || causa === "" || acao === "");
+    if (local === "" || horarioChamado === "" || horarioInicio === "" || horarioTermino === "" || fato === "" || causa === "" || acao === "") {
+        console.log("Missing data");
+        document.getElementById('shareWhatsapp').disabled = true;
+        document.getElementById('botaoCopiar').disabled = true;
+        document.getElementById('botaoSalvar').disabled = true;
+        const msgCampos = document.getElementById('msgCampos');
+        msgCampos.textContent = "Falta preencher algum campo obrigatório! Pode ser: Local, horário do chamado, do início, do término, fato, causa ou ação.";
         
-        // console.log(local === "" || horarioChamado === "" || horarioInicio === "" || horarioTermino === "" || fato === "" || causa === "" || acao === "");
-        if (local === "" || horarioChamado === "" || horarioInicio === "" || horarioTermino === "" || fato === "" || causa === "" || acao === "") {
-            console.log("Missing data");
-            document.getElementById('shareWhatsapp').disabled = true;
-            document.getElementById('botaoCopiar').disabled = true;
-            document.getElementById('botaoSalvar').disabled = true;
-            const msgCampos = document.getElementById('msgCampos');
-            msgCampos.textContent = "Falta preencher algum campo obrigatório! Pode ser: Local, horário do chamado, do início, do término, fato, causa ou ação.";
-            
-        } else {
-            const whatsappBtn = document.getElementById('shareWhatsapp');
-            whatsappBtn.removeAttribute('disabled');
-            const copyBtn = document.getElementById('botaoCopiar');
-            copyBtn.removeAttribute('disabled');
-            const saveBtn = document.getElementById('botaoSalvar');
-            saveBtn.removeAttribute('disabled');
-            msgCampos.textContent = "";
-        }
-        
+    } else {
+        const whatsappBtn = document.getElementById('shareWhatsapp');
+        whatsappBtn.removeAttribute('disabled');
+        const copyBtn = document.getElementById('botaoCopiar');
+        copyBtn.removeAttribute('disabled');
+        const saveBtn = document.getElementById('botaoSalvar');
+        saveBtn.removeAttribute('disabled');
+        msgCampos.textContent = "";
     }
+    
+}
 
 }
 
@@ -513,7 +513,6 @@ const finalText = commaSeparatedList;
 
 autoReplacedWords.textContent = finalText;
 
-    </script>
+</script>
 </body>
 </html>
-
