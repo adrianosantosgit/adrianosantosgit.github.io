@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.5">
+    <title>RELATÓRIO DE CHAMADOS</title>
+    <style type="text/css">
+        
+
+    </style>
+    <link rel="stylesheet" href="dark.css">
+</head>
+<body>
+
+    <p>
+    <button style="position: absolute; left: 33%; margin-right: 2em;" onclick="darkMode()">Tela Escura</button>
+    <button style="position: absolute; left: 60%; margin-left: 2em;" onclick="lightMode()">Tela Clara</button>
+    </p>
+
+    <h2 style="padding-top: 2em;">Formulário automático de preenchimento de chamados</h2>
+
+    <p style="font-size: 1.5em;">Palavras com letras maiúsculas automaticamente:</p>
+    <p id="autoReplacedWords"></p>
+
+    <form id="myForm">
+        <p><label for="local">Local:</label></p><p><input type="text" onkeyup="checkForm()" list="myOptions" id="local" placeholder="*LOCAL:*" required>
+            <datalist id="myOptions">
+
+                <option value="A02">
+                <option value="A02 POEM">
+                <option value="A02 PCA">
+                <option value="A02 GPU">
+                <option value="A02 PCA móvel 0x">
+                <option value="A02 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="A04">
+                <option value="A04 POEM">
+                <option value="A04 PCA">
+                <option value="A04 GPU">
+                <option value="A04 PCA móvel 0x">
+                <option value="A04 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="A06">
+                <option value="A06 POEM">
+                <option value="A06 PCA">
+                <option value="A06 GPU">
+                <option value="A06 PCA móvel 0x">
+                <option value="A06 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="A08">
+                <option value="A08 POEM">
+                <option value="A08 PCA">
+                <option value="A08 GPU">
+                <option value="A08 PCA móvel 0x">
+                <option value="A08 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="B02">
+                <option value="B02 POEM">
+                <option value="B02 PCA">
+                <option value="B02 GPU">
+                <option value="B02 PCA móvel 0x">
+                <option value="B02 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="B04">
+                <option value="B04 POEM">
+                <option value="B04 PCA">
+                <option value="B04 GPU">
+                <option value="B04 PCA móvel 0x">
+                <option value="B04 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="B06">
+                <option value="B06 POEM">
+                <option value="B06 PCA">
+                <option value="B06 GPU">
+                <option value="B06 PCA móvel 0x">
+                <option value="B06 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="B08">
+                <option value="B08 POEM">
+                <option value="B08 PCA">
+                <option value="B08 GPU">
+                <option value="B08 PCA móvel 0x">
+                <option value="B08 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="B10">
+                <option value="B10 POEM">
+                <option value="B10 PCA">
+                <option value="B10 GPU">
+                <option value="B10 PCA móvel 0x">
+                <option value="B10 GPU móvel 0x">
+                <option value=" ">
+                    
+                <option value="B12">
+                <option value="B12 POEM">
+                <option value="B12 PCA">
+                <option value="B12 GPU">
+                <option value="B12 PCA móvel 0x">
+                <option value="B12 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="B14">
+                <option value="B14 POEM">
+                <option value="B14 PCA">
+                <option value="B14 GPU">
+                <option value="B14 PCA móvel 0x">
+                <option value="B14 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="B07">
+                <option value="B07 POEM">
+                <option value="B07 PCA">
+                <option value="B07 GPU">
+                <option value="B07 PCA móvel 0x">
+                <option value="B07 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="B09">
+                <option value="B09 POEM">
+                <option value="B09 PCA">
+                <option value="B09 GPU">
+                <option value="B09 PCA móvel 0x">
+                <option value="B09 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="B11">
+                <option value="B11 POEM">
+                <option value="B11 PCA">
+                <option value="B11 GPU">
+                <option value="B11 PCA móvel 0x">
+                <option value="B11 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="B13">
+                <option value="B13 POEM">
+                <option value="B13 PCA">
+                <option value="B13 GPU">
+                <option value="B13 PCA móvel 0x">
+                <option value="B13 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="C02">
+                <option value="C02 POEM">
+                <option value="C02 PCA">
+                <option value="C02 GPU">
+                <option value="C02 PCA móvel 0x">
+                <option value="C02 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="C04">
+                <option value="C04 POEM">
+                <option value="C04 PCA">
+                <option value="C04 GPU">
+                <option value="C04 PCA móvel 0x">
+                <option value="C04 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="C06">
+                <option value="C06 POEM">
+                <option value="C06 PCA">
+                <option value="C06 GPU">
+                <option value="C06 PCA móvel 0x">
+                <option value="C06 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="C08">
+                <option value="C08 POEM">
+                <option value="C08 PCA">
+                <option value="C08 GPU">
+                <option value="C08 PCA móvel 0x">
+                <option value="C08 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="C10">
+                <option value="C10 POEM">
+                <option value="C10 PCA">
+                <option value="C10 GPU">
+                <option value="C10 PCA móvel 0x">
+                <option value="C10 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="C12">
+                <option value="C12 POEM">
+                <option value="C12 PCA">
+                <option value="C12 GPU">
+                <option value="C12 PCA móvel 0x">
+                <option value="C12 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="C14">
+                <option value="C14 POEM">
+                <option value="C14 PCA">
+                <option value="C14 GPU">
+                <option value="C14 PCA móvel 0x">
+                <option value="C14 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="C05">
+                <option value="C05 POEM">
+                <option value="C05 PCA">
+                <option value="C05 GPU">
+                <option value="C05 PCA móvel 0x">
+                <option value="C05 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="C07">
+                <option value="C07 POEM">
+                <option value="C07 PCA">
+                <option value="C07 GPU">
+                <option value="C07 PCA móvel 0x">
+                <option value="C07 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="C09">
+                <option value="C09 POEM">
+                <option value="C09 PCA">
+                <option value="C09 GPU">
+                <option value="C09 PCA móvel 0x">
+                <option value="C09 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="C11">
+                <option value="C11 POEM">
+                <option value="C11 PCA">
+                <option value="C11 GPU">
+                <option value="C11 PCA móvel 0x">
+                <option value="C11 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="C13">
+                <option value="C13 POEM">
+                <option value="C13 PCA">
+                <option value="C13 GPU">
+                <option value="C13 PCA móvel 0x">
+                <option value="C13 GPU móvel 0x">
+                <option value=" ">
+                
+                <option value="C15">
+                <option value="C15 POEM">
+                <option value="C15 PCA">
+                <option value="C15 GPU">
+                <option value="C15 PCA móvel 0x">
+                <option value="C15 GPU móvel 0x">
+                <option value=" ">
+
+                <option value="PCA móvel 01">
+                <option value="PCA móvel 02">
+                <option value="PCA móvel 03">
+                <option value="PCA móvel 04">
+                <option value=" ">
+
+
+                <option value="GPU móvel 01">
+                <option value="GPU móvel 02">
+                <option value="GPU móvel 03">
+                <option value="GPU móvel 04">
+                <!-- Add more options as needed -->
+            </datalist>
+        </p>
+        <p><label for="horarioChamado">Horario do chamado: </label><input type="time" value="12:30" id="horarioChamado" placeholder="*HORÁRIO DO CHAMADO:*" required></p>
+        <p><label for="horarioInicio">Horario de início: </label><input type="time" value="12:30" id="horarioInicio" placeholder="*HORÁRIO DO INÍCIO:*" required></p>
+        <p><label for="horarioTermino">Horario de término: </label><input type="time" value="12:30" id="horarioTermino" placeholder="*HORÁRIO DO TÉRMINO:*" required></p>
+        <p><label for="fato">Fato:</label></p><p><input type="text" onkeyup="checkForm()" id="fato" placeholder="*FATO:*" required></p>
+        <p><label for="causa">Causa:</label></p><p><input type="text" onkeyup="checkForm()" id="causa" placeholder="*CAUSA:*" required></p>
+        <p><label for="acao">Ação:</label></p><p></p><input type="text" onkeyup="checkForm()" id="acao" placeholder="*AÇÃO:*" required></p>
+        <p><label for="obs">Observação se necessário:</label></p><p></p><input type="text" id="obs" placeholder="*OBS:*"></p>
+    </form>
+
+    <p><h3>Relatório gerado:</h3></p>
+
+    <p><textarea id="output" rows="20" cols="" readonly></textarea></p>
+
+    <p id="msgCampos"></p>
+
+    <pre><p><a href="" id="botaoWhatsapp" onclick="shareViaWhatsapp()" ><button id="shareWhatsapp" disabled>Enviar via WhatsApp</button></a></p>
+    </pre>
+
+    <p><button id="botaoCopiar" disabled onclick="copyToClipboard();">Copiar</button></p>
+    <p id="mensagemSucesso"></p>
+    <p><button id="botaoSalvar" disabled style="position: absolute; left: 80%; margin: 1em; border-radius: 15%;" onclick="gerarArquivo();">Salvar cópia</button></p>
+    <p></p>
+
+    <script>
+
+const form = document.getElementById("myForm");
+const outputBox = document.getElementById("output");
+
+form.addEventListener("input", updateOutput);
+
+const wordsToSearch = ["poem", "gpu", "pca", "ihm", "lcd", "j3", "c1", "c2", "cbm"];
+
+function updateOutput() {
+
+
+    let local = document.getElementById("local").value;
+    local = local.toUpperCase();
+    let horarioChamado = document.getElementById("horarioChamado").value;
+    const horarioInicio = document.getElementById("horarioInicio").value;
+    const horarioTermino = document.getElementById("horarioTermino").value;
+    let fato = document.getElementById("fato").value;
+    fato = fato.charAt(0).toUpperCase() + fato.slice(1) + ".";
+    fato = fato.replace(
+    new RegExp(wordsToSearch.join("|"), "gi"),
+    (match) => match.toUpperCase()
+    );
+    let causa = document.getElementById("causa").value;
+    causa = causa.charAt(0).toUpperCase() + causa.slice(1) + ".";
+    causa = causa.replace(
+    new RegExp(wordsToSearch.join("|"), "gi"),
+    (match) => match.toUpperCase()
+    );
+    let acao = document.getElementById("acao").value;
+    acao = acao.charAt(0).toUpperCase() + acao.slice(1) + ".";
+    acao = acao.replace(
+    new RegExp(wordsToSearch.join("|"), "gi"),
+    (match) => match.toUpperCase()
+    );
+    let obs = document.getElementById("obs").value;
+    if (obs === "") {
+        obs = "";        
+    } else {
+        obs = "*OBS:* " + obs.charAt(0).toUpperCase() + obs.slice(1) + ".";
+        obs = obs.replace(
+        new RegExp(wordsToSearch.join("|"), "gi"),
+        (match) => match.toUpperCase()
+        );
+    }
+    
+    const combinedText = `*Local:* ${local}\n\n*Chamado:* ${horarioChamado}\n*Início:* ${horarioInicio}\n*Término:* ${horarioTermino}\n\n*Fato:* ${fato}\n\n*Causa:* ${causa}\n\n*Ação:* ${acao}\n\n${obs}`;
+    outputBox.value = combinedText;
+    
+}
+
+function copyToClipboard() {
+    outputBox.select();
+    document.execCommand("copy");
+    // Optionally, provide user feedback (e.g., alert or message)
+    
+    // Show a success message (toast) for 0.5 seconds
+    const successMessage = document.createElement("div");
+    successMessage.textContent = "Copiado com sucesso!";
+    successMessage.classList.add("toast"); // Apply CSS styling for the toast
+    
+    document.body.appendChild(successMessage); // Add the toast to the DOM
+    
+    setTimeout(() => {
+        document.body.removeChild(successMessage); // Remove the toast after 1.5 seconds
+    }, 1500);
+
+}
+
+function lightMode() {
+    const el = document.querySelector("link");
+    el.href = "light.css";
+}
+function darkMode() {
+    const el = document.querySelector("link");
+    el.href = "dark.css";
+}
+function gerarArquivo() {
+    const now = new Date();
+    const dataFormatada = `${now.getDate().toString().padStart(2, '0')}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getFullYear()}`;
+    const horaFormatada = `${now.getHours().toString().padStart(2, '0')}-${now.getMinutes().toString().padStart(2, '0')}-${now.getSeconds().toString().padStart(2, '0')}`;
+    const nomeArquivo = `relatorio_chamado_${local.value}_${dataFormatada}_${horaFormatada}.txt`;
+
+    const conteudo = document.getElementById("output");
+    const blob = new Blob([outputBox.value]);
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = nomeArquivo;
+    link.click();
+
+    // Limpeza do objeto URL após o download
+    URL.revokeObjectURL(url);
+}
+
+function shareViaWhatsapp() {
+
+    let local = document.getElementById("local").value;
+    local = local.toUpperCase();
+    let horarioChamado = document.getElementById("horarioChamado").value;
+    let horarioInicio = document.getElementById("horarioInicio").value;
+    let horarioTermino = document.getElementById("horarioTermino").value;
+    let fato = document.getElementById("fato").value;
+    fato = fato.charAt(0).toUpperCase() + fato.slice(1) + ".";
+    let causa = document.getElementById("causa").value;
+    causa = causa.charAt(0).toUpperCase() + causa.slice(1) + ".";
+    let acao = document.getElementById("acao").value;
+    acao = acao.charAt(0).toUpperCase() + acao.slice(1) + ".";
+    let obs = document.getElementById("obs").value;
+    if (obs === "") {
+        obs = "";        
+    } else {
+        obs = "*OBS:* " + obs.charAt(0).toUpperCase() + obs.slice(1) + ".";
+    }
+    
+    const combinedText = `*Local:* ${local}%0A%0A*Chamado:* ${horarioChamado}%0A*Início:* ${horarioInicio}%0A*Término:* ${horarioTermino}%0A%0A*Fato:* ${fato}%0A%0A*Causa:* ${causa}%0A%0A*Ação:* ${acao}%0A%0A${obs}`;
+
+    const whatsappURL = `whatsapp://send?text=${combinedText}`;
+    const link = document.getElementById('botaoWhatsapp');
+    link.href = whatsappURL;
+    // link.textContent = 'Compartilhar no Whatsapp';
+}
+
+function checkForm() {
+
+    const myForm = document.getElementById('myForm');
+
+    const formElements = document.forms.myForm.elements;
+ 
+    for (i in formElements) {
+        let local = document.getElementById("local").value;
+        let horarioChamado = document.getElementById("horarioChamado").value;
+        let horarioInicio = document.getElementById("horarioInicio").value;
+        let horarioTermino = document.getElementById("horarioTermino").value;
+        let fato = document.getElementById("fato").value;
+        let causa = document.getElementById("causa").value;
+        let acao = document.getElementById("acao").value;
+        
+        // console.log(local === "" || horarioChamado === "" || horarioInicio === "" || horarioTermino === "" || fato === "" || causa === "" || acao === "");
+        if (local === "" || horarioChamado === "" || horarioInicio === "" || horarioTermino === "" || fato === "" || causa === "" || acao === "") {
+            console.log("Missing data");
+            document.getElementById('shareWhatsapp').disabled = true;
+            document.getElementById('botaoCopiar').disabled = true;
+            document.getElementById('botaoSalvar').disabled = true;
+            const msgCampos = document.getElementById('msgCampos');
+            msgCampos.textContent = "Falta preencher algum campo obrigatório! Pode ser: Local, horário do chamado, do início, do término, fato, causa ou ação.";
+            
+        } else {
+            const whatsappBtn = document.getElementById('shareWhatsapp');
+            whatsappBtn.removeAttribute('disabled');
+            const copyBtn = document.getElementById('botaoCopiar');
+            copyBtn.removeAttribute('disabled');
+            const saveBtn = document.getElementById('botaoSalvar');
+            saveBtn.removeAttribute('disabled');
+            msgCampos.textContent = "";
+        }
+        
+    }
+
+}
+
+const autoReplacedWords = document.getElementById("autoReplacedWords");
+const description = ""; // Your desired description
+const commaSeparatedList = wordsToSearch.join(", ").toUpperCase();
+const finalText = commaSeparatedList;
+
+autoReplacedWords.textContent = finalText;
+
+    </script>
+</body>
+</html>
+

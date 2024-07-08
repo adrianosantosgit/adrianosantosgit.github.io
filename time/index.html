@@ -20,12 +20,12 @@
 
     <label for="chamado_hora_input">Hora</label>
     <button id="chamado_hora_minus">−</button>
-    <input type="number" value="12" id="chamado_hora_input" min="00" max="23"/>
+    <input type="number" value="12" id="chamado_hora_input" min="00" max="23" onkeyup="showInConsole(chamado_hora_input)"/>
     <button id="chamado_hora_plus">+</button>
 
     <label for="chamado_minute_input">Minuto</label>
     <button id="chamado_minute_minus">−</button>
-    <input type="number" value="30" id="chamado_minute_input" min="00" max="59"/>
+    <input type="number" value="30" id="chamado_minute_input" min="00" max="59" onkeyup="showInConsole(chamado_minute_input)"/>
     <button id="chamado_minute_plus">+</button>
 
     <!-- <p>Horário do início:</p>
@@ -73,7 +73,9 @@
         chamado_hora_inputField.value = Math.min(currentValue + 1, 23);
         if (chamado_hora_inputField.value < 10) {
             chamado_hora_inputField.value = "0" + chamado_hora_inputField.value;
-            console.log(chamado_hora_inputField.value);
+            console.log(chamado_hora_inputField.value + " HORAS");
+        }else {
+            console.log(chamado_hora_inputField.value + " HORAS");
         }
       });
 
@@ -88,7 +90,7 @@
         if (chamado_minute_inputField.value < 10) {
             chamado_minute_inputField.value = "0" + chamado_minute_inputField.value;
             console.log(chamado_minute_inputField.value);
-        }
+        } 
       });
     
       chamado_minute_plusButton.addEventListener('click', event => {
@@ -97,11 +99,18 @@
         chamado_minute_inputField.value = Math.min(currentValue + 1, 59);
         if (chamado_minute_inputField.value < 10) {
             chamado_minute_inputField.value = "0" + chamado_minute_inputField.value;
-            console.log(chamado_minute_inputField.value);
+            console.log(chamado_minute_inputField.value + " MINUTOS");
+        }else {
+            console.log(chamado_minute_inputField.value + " MINUTOS");
         }
       });
 
+      function showInConsole(par){
+        let strfiedPar = "'" + par + "'";
+        document.getElementById(strfiedPar);
+        console.log(par.value);
 
+      }
 
     </script>
     
