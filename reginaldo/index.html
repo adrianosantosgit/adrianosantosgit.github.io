@@ -264,10 +264,10 @@
                 <!-- Add more options as needed -->
             </datalist>
         </p>
-        <p><label for="horarioChamado">Horario do chamado: </label><input type="time" value="" id="horarioChamado" placeholder="*HORÁRIO DO CHAMADO:*" required></p>
-        <p><label for="horarioInicio">Horario de início: </label><input type="time" value="" id="horarioInicio" placeholder="*HORÁRIO DO INÍCIO:*" required></p>
+        <p><label for="horarioChamado">Horario do chamado: </label><input type="time" onkeyup="checkForm()" value="" id="horarioChamado" placeholder="*HORÁRIO DO CHAMADO:*" required></p>
+        <p><label for="horarioInicio">Horario de início: </label><input type="time" onkeyup="checkForm()" value="" id="horarioInicio" placeholder="*HORÁRIO DO INÍCIO:*" required></p>
         <p><label for="inicioObs">Observação sobre início se necessário:</label><input type="text" id="inicioObs" placeholder="*OBS do horário de início:*"></p>
-        <p><label for="horarioTermino">Horario de término: </label><input type="time" value="" id="horarioTermino" placeholder="*HORÁRIO DO TÉRMINO:*" required></p>
+        <p><label for="horarioTermino">Horario de término: </label><input type="time" onkeyup="checkForm()" value="" id="horarioTermino" placeholder="*HORÁRIO DO TÉRMINO:*" required></p>
         <p><label for="fato">Fato:</label></p><p><input type="text" onkeyup="checkForm()" id="fato" placeholder="*FATO:*" required></p>
         <p><label for="causa">Causa:</label></p><p><input type="text" onkeyup="checkForm()" id="causa" placeholder="*CAUSA:*" required></p>
         <p><label for="acao">Ação:</label></p><p></p><input type="text" onkeyup="checkForm()" id="acao" placeholder="*AÇÃO:*" required></p>
