@@ -362,7 +362,7 @@ if (obs === "") {
     obs = capitalizeSentences(obs);
 }
 
-const combinedText = `*Local:* ${local}\n\n*Chamado:* ${horarioChamado}\n*Início:* ${horarioInicio} ${inicioObs}\n*Término:* ${horarioTermino}\n\n*Fato:* ${fato}\n\n*Causa:* ${causa}\n\n*Ação:* ${acao}\n\n${obs}`;
+const combinedText = `*LOCAL:* ${local}\n\n*CHAMADO:* ${horarioChamado}\n*INÍCIO:* ${horarioInicio} ${inicioObs}\n*TÉRMINO:* ${horarioTermino}\n\n*FATO:* ${fato}\n\n*CAUSA:* ${causa}\n\n*AÇÃO:* ${acao}\n\n${obs}`;
 outputBox.value = combinedText;
 
 }
@@ -458,7 +458,7 @@ function shareViaWhatsapp() {
         obs = capitalizeSentences(obs);
     }
     
-    const combinedText = `*Local:* ${local}%0A%0A*Chamado:* ${horarioChamado}%0A*Início:* ${horarioInicio} ${inicioObs}%0A*Término:* ${horarioTermino}%0A%0A*Fato:* ${fato}%0A%0A*Causa:* ${causa}%0A%0A*Ação:* ${acao}%0A%0A${obs}`;
+    const combinedText = `*LOCAL:* ${local}%0A%0A*CHAMADO:* ${horarioChamado}%0A*INÍCIO:* ${horarioInicio} ${inicioObs}%0A*TÉRMINO:* ${horarioTermino}%0A%0A*FATO:* ${fato}%0A%0A*CAUSA:* ${causa}%0A%0A*AÇÃO:* ${acao}%0A%0A${obs}`;
 
     const whatsappURL = `whatsapp://send?text=${combinedText}`;
     const link = document.getElementById('botaoWhatsapp');
