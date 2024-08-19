@@ -46,7 +46,7 @@ function comparePrices() {
         const unitPrice = price / quantity;
         const name = document.getElementById(`name${i}`).value || `Produto ${i}`;
 
-        resultText += `Preço por unidade do ${name}: R$ ${unitPrice.toFixed(2)}\n`;
+        resultText += `Preço por quantidade do ${name}: R$ ${unitPrice.toFixed(2)}\n`;
     }
 
     let maxUnitPrice = -Infinity;
