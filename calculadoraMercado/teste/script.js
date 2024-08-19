@@ -40,31 +40,39 @@ function comparePrices() {
     const numProducts = form.querySelectorAll('h3').length;
     let resultText = '';
 
-    for (let i = 1; i <= numProducts; i++) {
-        const price = parseFloat(document.getElementById(`price${i}`).value.replace(',', '.'));
-        const quantity = parseFloat(document.getElementById(`quantity${i}`).value.replace(',', '.'));
-        const unitPrice = price / quantity;
-        const name = document.getElementById(`name${i}`).value || `Produto ${i}`;
-
-        resultText += `Preço por quantidade do ${name}: R$ ${unitPrice.toFixed(2)}\n`;
-    }
-
     let maxUnitPrice = -Infinity;
+    let minUnitPrice = Infinity;
     let maxProduct = '';
+    let minProduct = '';
 
     for (let i = 1; i <= numProducts; i++) {
         const price = parseFloat(document.getElementById(`price${i}`).value.replace(',', '.'));
         const quantity = parseFloat(document.getElementById(`quantity${i}`).value.replace(',', '.'));
         const unitPrice = price / quantity;
         const name = document.getElementById(`name${i}`).value || `Produto ${i}`;
+
+        resultText += `\nPreço por quantidade do ${name}: R$ ${unitPrice.toFixed(2)} ou R$ ${unitPrice.toFixed(5)}\n`
 
         if (unitPrice > maxUnitPrice) {
             maxUnitPrice = unitPrice;
             maxProduct = name;
         }
+
+        if (unitPrice < minUnitPrice) {
+            minUnitPrice = unitPrice;
+            minProduct = name;
+        }
+                
     }
 
-    resultText += `\n${maxProduct} tem o maior preço por unidade.`;
+    if (minUnitPrice == maxUnitPrice) {
+        
+    } else {
+        resultText += `\n${maxProduct} é mais caro.`;
+        resultText += `\n`;
+        resultText += `\n${minProduct} é mais barato.`;
+    }
+
 
     document.getElementById('result').innerText = resultText;
 }
