@@ -16,11 +16,11 @@ function generateForm() {
             </div>
             <div>
                 <label for="price${i}">Preço do Produto ${i}:</label>
-                <input type="number" id="price${i}" name="price${i}" required>
+                <input type="text" id="price${i}" name="price${i}" required>
             </div>
             <div>
                 <label for="quantity${i}">Quantidade do Produto ${i}:</label>
-                <input type="number" id="quantity${i}" name="quantity${i}" required>
+                <input type="text" id="quantity${i}" name="quantity${i}" required>
             </div>
         `;
         form.appendChild(productDiv);
@@ -41,8 +41,8 @@ function comparePrices() {
     let resultText = '';
 
     for (let i = 1; i <= numProducts; i++) {
-        const price = parseFloat(document.getElementById(`price${i}`).value);
-        const quantity = parseFloat(document.getElementById(`quantity${i}`).value);
+        const price = parseFloat(document.getElementById(`price${i}`).value.replace(',', '.'));
+        const quantity = parseFloat(document.getElementById(`quantity${i}`).value.replace(',', '.'));
         const unitPrice = price / quantity;
         const name = document.getElementById(`name${i}`).value || `Produto ${i}`;
 
@@ -53,8 +53,8 @@ function comparePrices() {
     let maxProduct = '';
 
     for (let i = 1; i <= numProducts; i++) {
-        const price = parseFloat(document.getElementById(`price${i}`).value);
-        const quantity = parseFloat(document.getElementById(`quantity${i}`).value);
+        const price = parseFloat(document.getElementById(`price${i}`).value.replace(',', '.'));
+        const quantity = parseFloat(document.getElementById(`quantity${i}`).value.replace(',', '.'));
         const unitPrice = price / quantity;
         const name = document.getElementById(`name${i}`).value || `Produto ${i}`;
 
