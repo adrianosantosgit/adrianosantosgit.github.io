@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparar Preço por Quantidade</title>
+    <link rel="stylesheet" href="dark.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Comparar Preço por Quantidade</h1>
+    <form id="initialForm">
+        <div>
+            <label for="numProducts">Número de Produtos:</label>
+            <input type="number" id="numProducts" name="numProducts" min="2" required>
+        </div>
+        <button type="button" onclick="generateForm()">Enviar</button>
+    </form>
+    <div id="productFormContainer"></div>
+    <p id="result"></p>
+</body>
+</html>

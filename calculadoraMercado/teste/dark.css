@@ -1,0 +1,22 @@
+body {
+  background-color: #333;
+  color: #ffffff;
+  text-align: center;
+  padding: 10%;
+  padding-top: 3%;
+  margin: 5%;
+  font-size: 1.2em;
+}
+input{
+  font-size: 1em;
+  margin: 0.5em;
+  border-radius: 15px;
+  text-align: center;
+}
+button{
+  margin: 1.5em;
+  font-size: 1em;
+}
+label{
+  font-size: 1.2em;
+}
