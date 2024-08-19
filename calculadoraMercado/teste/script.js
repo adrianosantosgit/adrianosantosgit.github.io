@@ -11,19 +11,20 @@ function generateForm() {
         productDiv.innerHTML = `
             <h3>Produto ${i}</h3>
             <div>
+            <label for="price${i}">Preço do Produto ${i}:</label>
+            <input type="text" id="price${i}" name="price${i}" placeholder="R$ 0,00" required>
+            </div>
+            <div>
+            <label for="quantity${i}">Quantidade do Produto ${i}:</label>
+                <input type="text" id="quantity${i}" name="quantity${i}" placeholder="Quantidade" required>
+            </div>
+            <div>
                 <label for="name${i}">Nome/Marca do Produto ${i} (Opcional):</label>
-                <input type="text" id="name${i}" name="name${i}">
+                <input type="text" id="name${i}" name="name${i}" placeholder="Nome ou Marca">
             </div>
-            <div>
-                <label for="price${i}">Preço do Produto ${i}:</label>
-                <input type="text" id="price${i}" name="price${i}" required>
-            </div>
-            <div>
-                <label for="quantity${i}">Quantidade do Produto ${i}:</label>
-                <input type="text" id="quantity${i}" name="quantity${i}" required>
-            </div>
-        `;
+            `;
         form.appendChild(productDiv);
+            
     }
 
     const compareButton = document.createElement('button');
