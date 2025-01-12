@@ -146,7 +146,7 @@ function gerarRelatorio(tipo) {
     }
     
     const registrosFiltrados = registros.filter(filtro);
-    const conteudo = registrosFiltrados.map(registro => `${registro.dia}/${registro.mes}/${registro.ano},${registro.horas},${registro.descricao}`).join('\n\n');
+    const conteudo = registrosFiltrados.map(registro => `${registro.dia}/${registro.mes}/${registro.ano},${registro.horas} hora/s,${registro.descricao}`).join('\n\n');
     
     const blob = new Blob([conteudo], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
