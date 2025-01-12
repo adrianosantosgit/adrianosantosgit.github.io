@@ -150,7 +150,8 @@ function gerarRelatorio(tipo) {
     }
     
     const registrosFiltrados = registros.filter(filtro);
-    const conteudo = registrosFiltrados.map(registro => `${registro.dia}/${registro.mes}/${registro.ano}, ${registro.horas} hora/s, R$${registro.valor}, ${registro.descricao}`).join('\n\n');
+    const somaValores = registrosFiltrados.reduce((total, registro) => total + parseFloat(registro.valor || 0), 0).toFixed(2);
+    const conteudo = `Soma dos Valores: R$${somaValores}\n\n` + registrosFiltrados.map(registro => `${registro.dia}/${registro.mes}/${registro.ano}, ${registro.horas} hora/s, R$${registro.valor}, ${registro.descricao}`).join('\n\n');
     
     const blob = new Blob([conteudo], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
@@ -160,6 +161,7 @@ function gerarRelatorio(tipo) {
     a.click();
     URL.revokeObjectURL(url);
 }
+
 
 document.getElementById('apagarRegistros').addEventListener('click', function() {
     const deleteContainer = document.getElementById('deleteContainer');
