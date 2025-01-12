@@ -171,7 +171,7 @@ document.getElementById('apagarRegistros').addEventListener('click', function() 
     form.innerHTML = registros.map((registro, index) => `
         <label>
             <input type="checkbox" name="registro" value="${index}">
-            ${registro.dia}/${registro.mes}/${registro.ano}, ${registro.horas}, ${registro.descricao}
+            ${registro.dia}/${registro.mes}/${registro.ano}, ${registro.horas} hora/s, ${registro.descricao}
         </label>
     `).join('<br>');
     
