@@ -24,6 +24,9 @@ document.getElementById('novoRegistro').addEventListener('click', function() {
         </select>
         <p id="avisoHoras">É obrigatório informar a quantidade de horas</p>
         
+        <label for="valor">Valor da venda:</label>
+        <input type="number" id="valor" name="valor" placeholder="R$" inputmode="numeric">
+        
         <label for="descricao">Nome do Cliente, ou cabine ou observação (obrigatório):</label>
         <input type="text" id="descricao" name="descricao">
         <p id="avisoDescricao">É obrigatório informar alguma descrição</p>
@@ -59,7 +62,8 @@ document.getElementById('novoRegistro').addEventListener('click', function() {
             mes: form.mes.value,
             ano: form.ano.value,
             horas: form.horas.value,
-            descricao: form.descricao.value
+            descricao: form.descricao.value,
+            valor: form.valor.value
         };
         
         salvarRegistro(registro);
@@ -146,7 +150,7 @@ function gerarRelatorio(tipo) {
     }
     
     const registrosFiltrados = registros.filter(filtro);
-    const conteudo = registrosFiltrados.map(registro => `${registro.dia}/${registro.mes}/${registro.ano},${registro.horas} hora/s,${registro.descricao}`).join('\n\n');
+    const conteudo = registrosFiltrados.map(registro => `${registro.dia}/${registro.mes}/${registro.ano}, ${registro.horas} hora/s, R$${registro.valor}, ${registro.descricao}`).join('\n\n');
     
     const blob = new Blob([conteudo], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
@@ -156,7 +160,6 @@ function gerarRelatorio(tipo) {
     a.click();
     URL.revokeObjectURL(url);
 }
-
 
 document.getElementById('apagarRegistros').addEventListener('click', function() {
     const deleteContainer = document.getElementById('deleteContainer');
@@ -171,7 +174,7 @@ document.getElementById('apagarRegistros').addEventListener('click', function() 
     form.innerHTML = registros.map((registro, index) => `
         <label>
             <input type="checkbox" name="registro" value="${index}">
-            ${registro.dia}/${registro.mes}/${registro.ano}, ${registro.horas} hora/s, ${registro.descricao}
+            ${registro.dia}/${registro.mes}/${registro.ano}, ${registro.horas} hora/s, R$${registro.valor}, ${registro.descricao}
         </label>
     `).join('<br>');
     
