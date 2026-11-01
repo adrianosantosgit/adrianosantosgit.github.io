@@ -56,7 +56,7 @@ h2 { font-size: clamp(2.8rem, 5vw, 5.2rem); margin: .9rem 0 0; }
 .contact > * { display: block; width: min(1180px, calc(100% - 3rem)); margin-left: auto; margin-right: auto; }.contact .eyebrow { color: #a9d8ff; }.contact h2 { margin-bottom: 2.4rem; }.contact .button { width: fit-content; }
 footer { display: flex; justify-content: space-between; padding: 1.8rem 0; color: var(--muted); font: .68rem "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .04em; }
 body.dark { --ink: #e9f1fb; --muted: #a9b8cb; --paper: #101c2e; --line: #2d4058; --cream: #f4f3ed; --blue: #2b6fba; --accent: #a9d8ff; }
-body.dark .brand span { color: var(--ink); background: var(--accent); } body.dark .system-card { color: var(--ink); background: #d75d38; box-shadow: 16px 16px 0 var(--accent); } body.dark .system-card span:not(.status-dot), body.dark .system-card small { color: #fff1e6; } body.dark .contact { color: var(--ink); background: var(--accent); } body.dark .contact .eyebrow { color: var(--blue); } body.dark .button-light { background: var(--ink); color: var(--paper); }
+body.dark .brand span { color: var(--ink); background: var(--accent); } body.dark .system-card { color: var(--ink); background: #d75d38; box-shadow: 16px 16px 0 var(--accent); } body.dark .system-card span:not(.status-dot), body.dark .system-card small { color: #fff1e6; } body.dark .contact { color: var(--ink); background: var(--accent); } body.dark .contact .eyebrow { color: var(--blue); } body.dark .contact h2 em { color: var(--ink); } body.dark .button-light { background: var(--ink); color: var(--paper); }
 [dir="rtl"] { text-align: right; }
 [dir="rtl"] .hero-actions { flex-direction: row-reverse; justify-content: flex-end; }
 [dir="rtl"] .label-one { left: auto; right: 20%; }
